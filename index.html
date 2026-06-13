@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amruta Punjabi — Senior TA Consultant</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #1A1830;
+    --purple:  #3C3489;
+    --purple2: #6B63C8;
+    --teal:    #0F6E56;
+    --teal2:   #1D9E75;
+    --cream:   #F7F6F2;
+    --mist:    #EEEDFE;
+    --border:  #E2E1F0;
+    --mid:     #5F5E6E;
+    --white:   #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(247,246,242,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px; color: var(--purple); letter-spacing: 0.01em;
+  }
+  .nav-cta {
+    background: var(--purple); color: white;
+    padding: 8px 20px; border-radius: 100px;
+    text-decoration: none; font-size: 13px; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--purple2); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 40px 60px;
+    max-width: 960px; margin: 0 auto;
+    position: relative;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--mist); color: var(--purple);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 28px; width: fit-content;
+  }
+  .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--teal2); display: inline-block; }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.08; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 28px;
+    max-width: 780px;
+  }
+  .hero h1 em { font-style: italic; color: var(--purple2); }
+  .hero-sub {
+    font-size: 17px; color: var(--mid); max-width: 560px;
+    line-height: 1.7; margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--purple); color: white;
+    padding: 14px 28px; border-radius: 100px;
+    text-decoration: none; font-size: 14px; font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--purple2); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--purple);
+    padding: 14px 28px; border-radius: 100px; border: 1.5px solid var(--purple);
+    text-decoration: none; font-size: 14px; font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: var(--mist); }
+
+  .hero-regions {
+    margin-top: 56px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  }
+  .hero-regions-label { font-size: 11px; font-weight: 600; color: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; margin-right: 4px; }
+  .region-pill {
+    background: white; color: var(--mid); border: 1px solid var(--border);
+    font-size: 12px; padding: 4px 12px; border-radius: 100px;
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 40px; max-width: 960px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--teal2);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 42px); line-height: 1.15;
+    letter-spacing: -0.01em; color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .section-sub { font-size: 16px; color: var(--mid); max-width: 520px; line-height: 1.7; margin-bottom: 48px; }
+
+  /* STATS */
+  .stats-band {
+    background: var(--purple); padding: 48px 40px;
+  }
+  .stats-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px; color: white; line-height: 1; margin-bottom: 6px;
+  }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 500; }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .service-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover { border-color: var(--purple2); transform: translateY(-2px); }
+  .service-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--mist); display: flex; align-items: center; justify-content: center;
+    font-size: 18px; margin-bottom: 16px;
+  }
+  .service-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .service-desc { font-size: 13px; color: var(--mid); line-height: 1.65; }
+
+  /* HOW IT WORKS */
+  .how-band { background: white; padding: 80px 40px; }
+  .how-inner { max-width: 960px; margin: 0 auto; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .step { position: relative; }
+  .step-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px; color: var(--mist); line-height: 1;
+    margin-bottom: 12px;
+  }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .step-desc { font-size: 13px; color: var(--mid); line-height: 1.65; }
+
+  /* COMPARE */
+  .compare-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+  .compare-table th {
+    padding: 14px 20px; font-size: 13px; font-weight: 600;
+    text-align: left; border-bottom: 2px solid var(--border);
+  }
+  .compare-table th:first-child { color: var(--mid); }
+  .compare-table th:nth-child(2) { color: var(--mid); }
+  .compare-table th:nth-child(3) { color: var(--purple); background: var(--mist); border-radius: 8px 8px 0 0; }
+  .compare-table td {
+    padding: 13px 20px; font-size: 13px; color: var(--mid);
+    border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  .compare-table td:first-child { font-weight: 600; color: var(--ink); }
+  .compare-table td:nth-child(3) { color: var(--teal); font-weight: 500; background: #F0FAF7; }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .about-text p { font-size: 15px; color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
+  .about-text p strong { color: var(--ink); }
+  .creds { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .cred {
+    display: flex; align-items: center; gap: 12px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 16px;
+  }
+  .cred-icon { font-size: 20px; }
+  .cred-text { font-size: 13px; }
+  .cred-title { font-weight: 600; color: var(--ink); }
+  .cred-sub { color: var(--mid); font-size: 12px; }
+  .exp-list { display: flex; flex-direction: column; gap: 16px; }
+  .exp-item { border-left: 2px solid var(--border); padding-left: 16px; }
+  .exp-item.current { border-left-color: var(--purple); }
+  .exp-company { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .exp-role { font-size: 13px; color: var(--mid); }
+  .exp-period { font-size: 11px; color: var(--teal2); font-weight: 600; margin-top: 2px; }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: var(--ink); border-radius: 24px;
+    padding: 64px; text-align: center;
+    margin: 0 40px 80px;
+  }
+  .cta-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 44px); color: white;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .cta-section h2 em { font-style: italic; color: var(--purple2); }
+  .cta-section p { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
+  .cta-contacts { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 32px; }
+  .cta-contact { font-size: 13px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 6px; }
+  .cta-contact a { color: rgba(255,255,255,0.8); text-decoration: none; }
+  .cta-contact a:hover { color: white; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 24px 40px;
+    font-size: 12px; color: var(--mid);
+    border-top: 1px solid var(--border);
+  }
+
+  /* DIVIDER */
+  .full-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .hero, section { padding-left: 20px; padding-right: 20px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .cta-section { margin: 0 20px 60px; padding: 40px 24px; }
+    .hero h1 { font-size: 36px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Amruta Punjabi</div>
+  <a href="mailto:amritapunjabi@yahoo.co.in" class="nav-cta">Get in touch →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow"><span></span> Available for retainer engagements</div>
+  <h1>Your dedicated TA partner,<br><em>without the full-time cost.</em></h1>
+  <p class="hero-sub">I work as an HR Consultant on a retainer model — embedded with your HR team, owning your hiring end-to-end, across India and global markets.</p>
+  <div class="hero-actions">
+    <a href="mailto:amritapunjabi@yahoo.co.in" class="btn-primary">Let's talk ↗</a>
+    <a href="#how-it-works" class="btn-secondary">How it works</a>
+  </div>
+  <div class="hero-regions">
+    <span class="hero-regions-label">Covering</span>
+    <span class="region-pill">India</span>
+    <span class="region-pill">APAC</span>
+    <span class="region-pill">Middle East</span>
+    <span class="region-pill">United Kingdom</span>
+    <span class="region-pill">Europe</span>
+    <span class="region-pill">United States</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">9+</div><div class="stat-label">Years in HR & TA</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Global Regions</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Recruitment Tools</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Enterprise Clients</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="fade-up">
+  <div class="section-label">What I offer</div>
+  <h2 class="section-title">Everything your TA function needs</h2>
+  <p class="section-sub">From sourcing strategy to offer rollout — I own the full hiring cycle as part of your HR team, not as an external agency.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <div class="service-title">End-to-End Talent Acquisition</div>
+      <div class="service-desc">Full-cycle hiring from job brief to signed offer. I manage sourcing, screening, interviews, assessments and onboarding coordination.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <div class="service-title">Dedicated HR Team Partnership</div>
+      <div class="service-desc">I integrate directly into your HR team — attending syncs, reporting metrics, managing pipelines. No business-facing interaction unless you direct it.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌍</div>
+      <div class="service-title">Global Hiring Frameworks</div>
+      <div class="service-desc">Tailored recruitment strategies for India, APAC, Middle East, UK and Europe — with knowledge of regional hiring practices, compliance and sourcing channels.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📣</div>
+      <div class="service-title">Employer Branding</div>
+      <div class="service-desc">Positioning your organisation as an employer of choice in your target markets — from JD writing to candidate experience design.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <div class="service-title">Recruitment Analytics & Reporting</div>
+      <div class="service-desc">Weekly dashboards on time-to-hire, cost-per-hire, pipeline health and candidate satisfaction — so your HR team always has visibility.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎓</div>
+      <div class="service-title">DEI & Campus Hiring</div>
+      <div class="service-desc">Inclusive hiring frameworks, diversity sourcing strategies and bulk campus recruitment programmes built for scale.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- HOW IT WORKS -->
+<div class="how-band" id="how-it-works">
+  <div class="how-inner fade-up">
+    <div class="section-label">The model</div>
+    <h2 class="section-title">Simple to start, flexible to scale</h2>
+    <p class="section-sub">No lengthy onboarding. No rigid contracts. Built to move at your hiring pace.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Alignment call</div>
+        <div class="step-desc">A 20-minute conversation about your hiring needs, team structure, timelines and what success looks like for you.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Retainer agreement</div>
+        <div class="step-desc">A simple engagement letter covering scope, hours, rate and reporting cadence. No bureaucracy, no lengthy procurement.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">I get to work</div>
+        <div class="step-desc">Onboard to your ATS, meet the HR team, understand your JDs — and start delivering within the first week.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Ongoing delivery</div>
+        <div class="step-desc">Weekly hiring updates, live pipeline reports and regular HR team syncs. You always know where things stand.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-title">Flexible scaling</div>
+        <div class="step-desc">Ramp up when hiring is heavy, pull back when it's quiet. The retainer adjusts to your actual demand — no wasted spend.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-title">HR-only interface</div>
+        <div class="step-desc">I work exclusively with your HR team — not business-facing. This keeps governance clean and your HR function in full control.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARE -->
+<section id="compare" class="fade-up">
+  <div class="section-label">Why retainer</div>
+  <h2 class="section-title">Retainer vs. full-time hire</h2>
+  <p class="section-sub">For growing teams that need senior TA capability without the overhead of a permanent headcount.</p>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Full-time TA hire</th>
+        <th>Retainer with me ✓</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Cost</td><td>Fixed salary + benefits + equipment + PF</td><td>Monthly retainer — pay for what you use</td></tr>
+      <tr><td>Commitment</td><td>Permanent headcount, notice periods, IR risk</td><td>Flexible — scale up or exit cleanly</td></tr>
+      <tr><td>Speed to hire</td><td>4–6 weeks onboarding before productivity</td><td>Active and hiring within the first week</td></tr>
+      <tr><td>Global expertise</td><td>May need upskilling for cross-border roles</td><td>Proven across APAC, ME, UK & Europe</td></tr>
+      <tr><td>HR integration</td><td>Works across the whole org</td><td>Works exclusively with your HR team</td></tr>
+      <tr><td>Risk</td><td>High — termination costs, redundancy</td><td>Low — simple agreement, clean exit</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="full-divider">
+
+<!-- ABOUT -->
+<section id="about" class="fade-up">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <h2 class="section-title">9 years. Every hiring challenge you can think of.</h2>
+      <p>I've led talent acquisition at <strong>ThirdBridge</strong>, <strong>Eide Bailly LLP</strong> and <strong>Diebold Nixdorf</strong> — building pipelines, launching ATS systems, managing global hiring across research, financial services and technology.</p>
+      <p>I launched my independent practice because I kept seeing the same problem: growing companies need <strong>senior TA expertise</strong>, but not always a full-time hire. The retainer model solves that.</p>
+      <p>I hold a <strong>Strategic HR Leadership certification from Cornell University</strong> and am currently advancing my <strong>SHRM-SCP</strong> and <strong>CIPD</strong> qualifications — so the frameworks I bring are always current.</p>
+      <div class="creds">
+        <div class="cred"><div class="cred-icon">🎓</div><div class="cred-text"><div class="cred-title">Cornell University</div><div class="cred-sub">Strategic HR Leadership, 2024</div></div></div>
+        <div class="cred"><div class="cred-icon">📘</div><div class="cred-text"><div class="cred-title">SHRM-SCP</div><div class="cred-sub">In progress</div></div></div>
+        <div class="cred"><div class="cred-icon">📗</div><div class="cred-text"><div class="cred-title">CIPD</div><div class="cred-sub">In progress</div></div></div>
+        <div class="cred"><div class="cred-icon">✅</div><div class="cred-text"><div class="cred-title">Certified Recruitment Manager</div><div class="cred-sub">ATS Specialist · AI & Automation in Excel</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label" style="margin-bottom:20px;">Experience</div>
+      <div class="exp-list">
+        <div class="exp-item current">
+          <div class="exp-company">Independent HR Consulting</div>
+          <div class="exp-role">Senior TA Consultant — Retainer Model</div>
+          <div class="exp-period">2025 — Present</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">ThirdBridge</div>
+          <div class="exp-role">Talent Acquisition Manager</div>
+          <div class="exp-period">Apr 2023 – May 2025</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Eide Bailly LLP</div>
+          <div class="exp-role">Lead Talent Acquisition Specialist</div>
+          <div class="exp-period">Nov 2021 – Apr 2023</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Diebold Nixdorf</div>
+          <div class="exp-role">Talent Acquisition Partner</div>
+          <div class="exp-period">Feb 2018 – Jul 2021</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Abacus Service Corporation</div>
+          <div class="exp-role">Recruiter</div>
+          <div class="exp-period">Nov 2016 – Aug 2017</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Planman HR</div>
+          <div class="exp-role">Associate Consultant</div>
+          <div class="exp-period">Sep 2015 – Nov 2016</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section fade-up">
+  <h2>Ready to talk about<br><em>your hiring needs?</em></h2>
+  <p>I'm currently open to new retainer engagements. Let's have a 20-minute call — no commitment, just a conversation.</p>
+  <a href="mailto:amritapunjabi@yahoo.co.in" class="btn-primary" style="margin: 0 auto; display: inline-flex;">Book a call ↗</a>
+  <div class="cta-contacts">
+    <div class="cta-contact">✉ <a href="mailto:amritapunjabi@yahoo.co.in">amritapunjabi@yahoo.co.in</a></div>
+    <div class="cta-contact">📱 <a href="tel:+918879541488">+91 8879 541 488</a></div>
+    <div class="cta-contact">📍 Mumbai, India</div>
+  </div>
+</div>
+
+<footer>© 2025 Amruta Punjabi · Independent HR Consultant · Mumbai, India</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
